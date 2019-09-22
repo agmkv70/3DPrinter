@@ -69,20 +69,21 @@
 //
 // Limit Switches
 //
-#define X_MIN_PIN           3
+#define X_MIN_PIN           3   //ramps=3//3=int
+////////////////////////////////////////////////////////////_NIK: swapped X_MAX_PIN and Y_MIN_PIN to enable interrupts!!!
 #ifndef X_MAX_PIN
-  #define X_MAX_PIN         2
+  #define X_MAX_PIN        14   //ramps=2//2=int   !!!
 #endif
-#define Y_MIN_PIN          14
-#define Y_MAX_PIN          15
-#define Z_MIN_PIN          18
-#define Z_MAX_PIN          19
+#define Y_MIN_PIN           2   //ramps=14         !!!
+#define Y_MAX_PIN          15   //ramps=15
+#define Z_MIN_PIN          18   //ramps=18//18=int
+#define Z_MAX_PIN          19   //ramps=19//19=int
 
 //
 // Z Probe (when not Z_MIN_PIN)
 //
 #ifndef Z_MIN_PROBE_PIN
-  #define Z_MIN_PROBE_PIN  32
+  #define Z_MIN_PROBE_PIN  Z_MAX_PIN//_nik was=32
 #endif
 
 //
@@ -91,36 +92,36 @@
 #define X_STEP_PIN         54
 #define X_DIR_PIN          55
 #define X_ENABLE_PIN       38
-#ifndef X_CS_PIN
-  #define X_CS_PIN         53
-#endif
+//#ifndef X_CS_PIN
+  #define X_CS_PIN         42
+//#endif
 
 #define Y_STEP_PIN         60
 #define Y_DIR_PIN          61
 #define Y_ENABLE_PIN       56
-#ifndef Y_CS_PIN
-  #define Y_CS_PIN         49
-#endif
+//#ifndef Y_CS_PIN
+  #define Y_CS_PIN         44
+//#endif
 
 #define Z_STEP_PIN         46
 #define Z_DIR_PIN          48
 #define Z_ENABLE_PIN       62
-#ifndef Z_CS_PIN
+//#ifndef Z_CS_PIN
   #define Z_CS_PIN         40
-#endif
+//#endif
 
 #define E0_STEP_PIN        26
 #define E0_DIR_PIN         28
 #define E0_ENABLE_PIN      24
-#ifndef E0_CS_PIN
-  #define E0_CS_PIN        42
-#endif
+//#ifndef E0_CS_PIN
+  #define E0_CS_PIN        64
+//#endif
 
 #define E1_STEP_PIN        36
 #define E1_DIR_PIN         34
 #define E1_ENABLE_PIN      30
 #ifndef E1_CS_PIN
-  #define E1_CS_PIN        44
+  #define E1_CS_PIN        40
 #endif
 
 /**
@@ -238,7 +239,7 @@
 #define HEATER_0_PIN       RAMPS_D10_PIN
 
 #if ENABLED(IS_RAMPS_EFB)                      // Hotend, Fan, Bed
-  #define HEATER_BED_PIN   RAMPS_D8_PIN
+  #define HEATER_BED_PIN   RAMPS_D8_PIN //_nik returned to D8 was=63(its spare pin i used to turn on relay for bed when used BED_LIMIT_SWITCHING) //!_nik was: RAMPS_D8_PIN
 #elif ENABLED(IS_RAMPS_EEF)                    // Hotend, Hotend, Fan
   #define HEATER_1_PIN     RAMPS_D9_PIN
 #elif ENABLED(IS_RAMPS_EEB)                    // Hotend, Hotend, Bed
