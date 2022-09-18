@@ -614,7 +614,7 @@
  * Override with M92
  *                                      X, Y, Z, E0 [, E1[, E2[, E3[, E4]]]]
  */
-#define DEFAULT_AXIS_STEPS_PER_UNIT   { 200, 200,1600, 418 }
+#define DEFAULT_AXIS_STEPS_PER_UNIT   { 201.89, 201.89, 1600, 418 } //+0.945%(*100.945) { 200, 200, 1600, 418 }
 
 /**
  * Default Max Feed Rate (mm/s)
@@ -1249,7 +1249,7 @@
 // M502 - reverts to the default "factory settings".  You still need to store them in EEPROM afterwards if you want to.
 //
 #define EEPROM_SETTINGS // Enable for M500 and M501 commands
-#define DISABLE_M503    //_nik disabled it// Saves ~2700 bytes of PROGMEM. Disable for release!
+//#define DISABLE_M503    //_nik commented it - good thing to know//_nik disabled it// Saves ~2700 bytes of PROGMEM. Disable for release!
 #define EEPROM_CHITCHAT   // Give feedback on EEPROM commands. Disable to save PROGMEM.
 
 //
@@ -1280,7 +1280,7 @@
 // @section temperature
 
 // Preheat Constants
-#define PREHEAT_1_TEMP_HOTEND 230
+#define PREHEAT_1_TEMP_HOTEND 220
 #define PREHEAT_1_TEMP_BED     70
 #define PREHEAT_1_FAN_SPEED     0 // Value from 0 to 255
 
